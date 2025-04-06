@@ -1,2 +1,4 @@
 .settings/
+.git/
+.metadata/
 target/
