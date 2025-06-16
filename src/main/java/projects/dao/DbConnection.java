@@ -23,7 +23,7 @@ public class DbConnection {
 			System.out.println("Successfully obtained connection!");
 			return conn;
 		} catch (SQLException e) {
-			System.out.println("Error getting connection.");
+			System.out.println("Error getting connection!  Please look into this.");
 			throw new DbException(e);
 		}
 	}
