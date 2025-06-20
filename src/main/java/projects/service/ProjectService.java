@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import projects.dao.ProjectDao;
 import projects.entity.Project;
+import projects.exception.DbException;
 
 public class ProjectService {
 
@@ -25,4 +26,9 @@ public class ProjectService {
 				"Project with project ID = " + projectId + " does not exist."));
 	}
 	
+	public void modifyProjectDetails(Project project) {
+		if(!projectDao.modifyProjectDetails(project)) {
+			throw new DbException("Project with ID= " + project.getProjectId() + " does not exist.");
+		}
+	}
 }
