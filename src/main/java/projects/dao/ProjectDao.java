@@ -50,9 +50,8 @@ public class ProjectDao extends DaoBase {
 				Integer projectId = getLastInsertId(conn, PROJECT_TABLE);
 				commitTransaction(conn);
 				
-				project.setProjectId(projectId);
+				project.setProjectId(projectId);				
 				return project;
-
 			}
 			catch(Exception e) {
 				rollbackTransaction(conn);
@@ -130,6 +129,7 @@ public class ProjectDao extends DaoBase {
 	}
 
 	private List<Material> fetchMaterialsForProject(Connection conn, Integer projectId) throws SQLException {
+		
 		//formatter:off
 		String sql = ""
 				+ "SELECT * FROM " + MATERIAL_TABLE
@@ -150,6 +150,7 @@ public class ProjectDao extends DaoBase {
 	}
 
 	private List<Step> fetchStepsForProject(Connection conn, Integer projectId) throws SQLException {
+		
 		//@formatter:off
 		String sql = ""
 				+ "SELECT * FROM " + STEP_TABLE
@@ -163,14 +164,14 @@ public class ProjectDao extends DaoBase {
 				
 				while(rs.next()) {
 					steps.add(extract(rs, Step.class));
-				}
-				
+				}				
 				return steps;
 			}
 		}
 	}
 
 	private List<Category> fetchCategoriesForProject(Connection conn, Integer projectId) throws SQLException {
+		
 		//@formatter:off
 		String sql = ""
 				+ "SELECT c.* FROM " + CATEGORY_TABLE + " c "
@@ -185,14 +186,14 @@ public class ProjectDao extends DaoBase {
 				
 				while(rs.next()) {
 					categories.add(extract(rs, Category.class));
-				}
-				
+				}				
 				return categories;
 			}
 		}
 	}
 
 	public boolean modifyProjectDetails(Project project) {
+		
 		//@formatter:off
 		String sql = ""
 				+ "UPDATE " + PROJECT_TABLE + " SET "
