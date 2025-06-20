@@ -93,25 +93,28 @@ public class Project {
     result += "\n   actualHours = " + actualHours;
     result += "\n   difficulty = " + difficulty;
     result += "\n   notes = " + notes;
-    
+    result += "\n";
     result += "\n   Materials: ";
     
     for(Material material : materials) {
       result += "\n      " + material;
     }
     
+    result += "\n";
     result += "\n   Steps: ";
     
     for(Step step : steps) {
       result += "\n      " + step;
     }
     
+    result += "\n";
     result += "\n   Categories: ";
     
     for(Category category : categories) {
       result += "\n      " + category;
     }
     
+    result += "\n";
     return result;
   }
 }
